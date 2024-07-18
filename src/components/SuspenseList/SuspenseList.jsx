@@ -5,25 +5,21 @@ import './SuspenseList.css';
 
 const SuspenseList = (props) => {
 
-  return (
+  const label = props.label ?? 'Label';
+  const required = props.required;
+  const items = props.items ?? []
 
+
+  return (
     <div className="SuspenseListWrapper">
-      <label>{props.label}</label>
-      <select required={props.required}>
-        {props.items.map(item => <option key={item.name}>{item.name}</option>)}
+      <label>{label}</label>
+      <select required={required}>
+        {items.map(item => <option key={item.name}>{item.name}</option>)}
       </select>
     </div>
   );
-  
+
 }
-
-SuspenseList.propTypes = {
-  label: PropTypes.string,
-};
-
-SuspenseList.defaultProps = {
-  // bla: 'test',
-};
 
 
 export default SuspenseList;
