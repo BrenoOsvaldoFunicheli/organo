@@ -1,0 +1,21 @@
+Cuidado ao fazer
+
+
+ao colocar o index nesse for, pois pode gerar problemas de atualização do componente
+
+
+{props.items.map([index, item] => <option key={item.name}>{item.name}</option>)}
+
+data binding ligar um valor de texto com a variável
+
+
+children => o quie é passado dentro do react
+JSX
+
+Variáveis dentro do html (JSX) usar o {} memsmo dentro do {} se tiver um componetne usamos o {} dentro dele
+
+
+
+Evento
+
+onSubmit={event => MyFunction(event)}
