@@ -1,7 +1,12 @@
 import './Card.css'
+import { FcEmptyTrash } from "react-icons/fc";
+
+
 
 const Card = ({ name, imagem, cargo }) => {
   return (<div className='colaborador'>
+      <FcEmptyTrash />
+
       <div className='cabecalho'>
           <img src={imagem} alt={name}/>
       </div>
