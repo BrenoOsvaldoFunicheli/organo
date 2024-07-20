@@ -1,0 +1,21 @@
+/* your css code */
+
+.teamboard {
+	background-color: #d9f7e9;
+	text-align: center;
+	padding: 32px;
+}
+
+.teamboard h3 {
+	font-size: 32px;
+	border-bottom: 4px solid #57c278;
+	padding: 8px;
+	display: inline-block;
+}
+
+.teamboard .colaboradores {
+	display: flex;
+	justify-content: space-around;
+	margin-top: 32px;
+	flex-wrap: wrap;
+}

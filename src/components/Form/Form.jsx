@@ -1,41 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-import './Form.css';
-import InputForm from '../InputForm/InputForm';
-import SuspenseList from '../SuspenseList/SuspenseList';
-import Btn from '../Btn';
+import Btn from "../Btn";
+import InputForm from "../InputForm/InputForm";
+import SuspenseList from "../SuspenseList/SuspenseList";
+import "./Form.css";
 
-
-
-const Form = (props) => {
-
-  const times = [
-    'Programação',
-    'Front-End',
-    'Data Science',
-    'Devops',
-    'UX e Design',
-    'Mobile',
-    'Inovação e Gestão'
-  ]
-
-  const [nome, setNome] = useState('')
-  const [cargo, setCargo] = useState('')
-  const [imagem, setImagem] = useState('')
-  const [time, setTime] = useState('')
+const Form = ({ team_names, aoColaboradorCadastrado }) => {
+  const [name, setName] = useState("");
+  const [cargo, setCargo] = useState("");
+  const [imagem, setImagem] = useState("");
+  const [time, setTime] = useState(team_names[0]);
 
   const onSave = (evento) => {
-    evento.preventDefault()
-    console.log('Form foi submetido')
-    
-    props.aoColaboradorCadastrado({
-      nome,
+    evento.preventDefault();
+    console.log("Form foi submetido");
+
+    aoColaboradorCadastrado({
+      name,
       cargo,
       imagem,
-      time
-    })
-  }
+      time,
+    });
 
+    // To clean state
+    setName("");
+    setCargo("");
+    setImagem("");
+    setTime(team_names[0]);
+  };
 
   return (
     <section className="formulario">
@@ -44,33 +36,31 @@ const Form = (props) => {
         <InputForm
           label="Nome"
           placeholder="Digite seu nome"
-          value={nome}
-          aoAlterado={valor => setNome(valor)}
+          value={name}
+          aoAlterado={(valor) => setName(valor)}
         />
         <InputForm
           label="Cargo"
           placeholder="Digite seu cargo"
           value={cargo}
-          aoAlterado={valor => setCargo(valor)}
+          aoAlterado={(valor) => setCargo(valor)}
         />
         <InputForm
           label="Imagem"
           placeholder="Digite o endereço da imagem"
           value={imagem}
-          aoAlterado={valor => setImagem(valor)}
+          aoAlterado={(valor) => setImagem(valor)}
         />
         <SuspenseList
           label="Time"
-          items={times}
+          items={team_names}
           value={time}
-          aoAlterado={valor => setTime(valor)}
+          aoAlterado={(valor) => setTime(valor)}
         />
         <Btn>Criar Time</Btn>
       </form>
     </section>
   );
-
-}
-
+};
 
 export default Form;

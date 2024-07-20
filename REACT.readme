@@ -1,28 +1,18 @@
-Cuidado ao fazer
-
-
-ao colocar o index nesse for, pois pode gerar problemas de atualização do componente
-
-
-{props.items.map([index, item] => <option key={item.name}>{item.name}</option>)}
-
-data binding ligar um valor de texto com a variável
-
-
-children => o quie é passado dentro do react
-JSX
-
-Variáveis dentro do html (JSX) usar o {} memsmo dentro do {} se tiver um componetne usamos o {} dentro dele
 
 
 
-Evento
 
-onSubmit={event => MyFunction(event)}
+
+
+
+
+
+
 
 
 Se voCê não definir o stado do componente e usr o setState ele não irá mudar (renderizar)
 
-Elevar o estado é deixar o componente pai tomar conta do estado
 
-respiro = padding
+
+
+https://www.figma.com/file/T6BLI1HfB81eYOiVgpqQz7/Projeto-Intro-ao-React?node-id=134%3A128
