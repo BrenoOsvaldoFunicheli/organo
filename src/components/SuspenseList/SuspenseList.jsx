@@ -13,8 +13,8 @@ const SuspenseList = (props) => {
   return (
     <div className="SuspenseListWrapper">
       <label>{label}</label>
-      <select required={required}>
-        {items.map(item => <option key={item.name}>{item.name}</option>)}
+      <select  value={props.value} onChange={evento => props.aoAlterado(evento.target.value)} required={required}>
+        {items.map(item => <option key={item}>{item}</option>)}
       </select>
     </div>
   );

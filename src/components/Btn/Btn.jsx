@@ -1,9 +1,8 @@
 import React from 'react';
+import './Btn.css'
 
 const Btn = ({ children }) => (
-  <div className="BtnWrapper">
-    {children}
-  </div>
+    <button className='btn-form'>{children}</button>
 );
 
 

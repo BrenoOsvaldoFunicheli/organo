@@ -19,3 +19,10 @@ Variáveis dentro do html (JSX) usar o {} memsmo dentro do {} se tiver um compon
 Evento
 
 onSubmit={event => MyFunction(event)}
+
+
+Se voCê não definir o stado do componente e usr o setState ele não irá mudar (renderizar)
+
+Elevar o estado é deixar o componente pai tomar conta do estado
+
+respiro = padding
