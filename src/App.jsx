@@ -241,28 +241,29 @@ function App() {
     )
   }
 
-
-
   return (
-    <div className="App">
-      <Banner />
+    
+      <div className="App">
 
-      <Form
-        team_names={times.map((time) => time.name)}
-        aoColaboradorCadastrado={(colaborador) =>
-          AddColaborador(colaborador)
-        }
-      />
+        <Banner />
 
-      {times.map((time) => <TeamBoard
-        key={time.name}
-        teamInfo={time}
-        changeColor={changeColor}
-        removeColaborador={removeColaborador}
-        colaboradores={colaboradores.filter(colaborador => colaborador.time === time.name)}
-      />
-      )}
-    </div>
+        <Form
+          team_names={times.map((time) => time.name)}
+          aoColaboradorCadastrado={(colaborador) =>
+            AddColaborador(colaborador)
+          }
+        />
+
+        {times.map((time) => <TeamBoard
+          key={time.name}
+          teamInfo={time}
+          changeColor={changeColor}
+          removeColaborador={removeColaborador}
+          colaboradores={colaboradores.filter(colaborador => colaborador.time === time.name)}
+        />
+        )}
+
+      </div>
   );
 }
 
