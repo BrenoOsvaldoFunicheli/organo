@@ -1,31 +1,36 @@
 import "./TeamBoard.css";
+import hexToRgba from 'hex-to-rgba';
 import Card from '../Card'
 
-const TeamBoard = ({ teamName, firstColor, secColor, colaboradores }) => {
-  const sectionCss = { backgroundColor: secColor, backgroundImage: 'url(/imagens/fundo.png)' };
-  const h3Css = { borderColor: firstColor };
+const TeamBoard = ({ teamInfo, colaboradores, changeColor, removeColaborador}) => {
+  
+  const sectionCss = { backgroundColor: hexToRgba(teamInfo.color, '0.4'), backgroundImage: 'url(/imagens/fundo.png)' };
+  const h3Css = { borderColor: teamInfo.color };
+  const allStyle = { sectionCss, h3Css };
 
-  const mapColaborador2Card = ({ name, cargo, imagem }) => {
-
-
-    
-    return <Card key={name} name={name} cargo={cargo} imagem={imagem} />
+  const mapColaborador2Card = (colaborador, bgColor, removeColaborador) => {
+    return <Card colaborador={colaborador} bgColor={bgColor} removeColaborador={removeColaborador} key={colaborador.id}/>
   }
+  
+  const renderTeamBoard = ({ sectionCss, h3Css }, teamInfo, colaboradores, changeColor, removeColaborador) => {
+    const Cardlist = colaboradores.map(colaborador => mapColaborador2Card(colaborador, teamInfo.color, removeColaborador))
 
-  const renderTeamBoard = ({ sectionCss, h3Css }, teamName, colaboradores) => {
     return (
       <section style={sectionCss} className="teamboard">
-        <h3 style={h3Css}>{teamName}</h3>
+
+        <input type="color" value={teamInfo.color} onChange={(event) => {changeColor(event.target.value, teamInfo.id)}} ></input>
+        <h3 style={h3Css}>{teamInfo.name}</h3>
         <div className='colaboradores'>
-          {colaboradores.map(colaborador => mapColaborador2Card(colaborador))}
+          {Cardlist}
         </div>
       </section>
     )
 
   }
+
   const shouldRender = colaboradores.length > 0;
 
-  return shouldRender ? renderTeamBoard({ sectionCss, h3Css }, teamName, colaboradores) : '';
+  return shouldRender ? renderTeamBoard(allStyle, teamInfo, colaboradores, changeColor, removeColaborador) : '';
 };
 
 export default TeamBoard;
